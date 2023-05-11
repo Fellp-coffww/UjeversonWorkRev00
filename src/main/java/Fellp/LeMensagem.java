@@ -13,8 +13,6 @@ public class LeMensagem {
         var elemento = findUltimaMensagem(webDriver);
         msg.setConteudoRecebido(elemento.getText());
 
-
-
     }
 
 

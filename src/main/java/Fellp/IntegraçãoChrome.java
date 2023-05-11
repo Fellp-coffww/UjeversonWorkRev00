@@ -26,7 +26,7 @@ public class IntegraçãoChrome {
 
             this.webDriver.get("https://web.whatsapp.com/");
             while (this.webDriver.findElements(By.id("side")).size() < 1 ){
-                System.out.println("Connecting... Please Wait");
+                System.out.println("Connecting... Please wait");
             }
         }catch (Exception e){
 

@@ -68,4 +68,11 @@ public class Ingrediente {
 
     }
 
+    public String toString(){
+
+        return  "Ingrediente: " + this.getNome()+ " Peso: " + this.getPesoUNI() + " Preço: " + this.getPreco()+"\n";
+
+
+    }
+
 }

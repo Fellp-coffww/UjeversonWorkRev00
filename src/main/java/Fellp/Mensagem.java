@@ -4,9 +4,12 @@ import java.util.Set;
 public class Mensagem {
 
         private String contatos;
+
         private String conteudoEnviado;
 
         private String conteudoRecebido;
+
+        private String ultimaMensgaem;
 
     public String getContatos() {
 
@@ -34,6 +37,16 @@ public class Mensagem {
 
     public void setConteudoRecebido(String conteudoRecebido) {
         this.conteudoRecebido = conteudoRecebido;
+    }
+
+    public String getUltimaMensgaem() {
+        return ultimaMensgaem;
+    }
+
+    public void AtualizaMSG(){
+
+        this.ultimaMensgaem = getConteudoRecebido();
+
     }
 }
 

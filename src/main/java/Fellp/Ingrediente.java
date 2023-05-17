@@ -6,17 +6,11 @@ public class Ingrediente {
     private Scanner sc = new Scanner(System.in);
     private String nome;
     private double pesoUNI;
-    private double pesoREC;
 
-    private float preco;
+    private double preco;
 
+    private double pesoReceita;
 
-    public double CaculaPreco() {
-
-        Double totalUsado = this.preco * this.pesoUNI / this.pesoREC;
-
-        return totalUsado;
-    }
 
     public double ValidaDado() {
         return 0;
@@ -39,19 +33,13 @@ public class Ingrediente {
         this.pesoUNI = pesoUNI;
     }
 
-    public double getPesoREC() {
-        return pesoREC;
-    }
 
-    public void setPesoREC(double pesoREC) {
-        this.pesoREC = pesoREC;
-    }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
@@ -61,8 +49,6 @@ public class Ingrediente {
         this.setNome(sc.nextLine());
         System.out.print("Add new PesoUni for ingredient: ");
         this.setPesoUNI(sc.nextDouble());
-        System.out.print("Add new PesoRec for ingredient: ");
-        this.setPesoREC(sc.nextDouble());
         System.out.print("Add new Preco for ingredient: ");
         this.setPreco(sc.nextFloat());
 
@@ -74,5 +60,16 @@ public class Ingrediente {
 
 
     }
+
+
+
+    public double getPesoReceita() {
+        return pesoReceita;
+    }
+
+    public void setPesoReceita(double pesoReceita) {
+        this.pesoReceita = pesoReceita;
+    }
+
 
 }

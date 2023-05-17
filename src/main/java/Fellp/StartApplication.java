@@ -9,19 +9,17 @@ import java.util.regex.Pattern;
 public class StartApplication {
 
     public static void main(String[] args) throws Exception {
-
-        MainConversation mainConversation = new MainConversation();
-        mainConversation.Chamadas();
-
+        MainConversation mc = new MainConversation();
+        mc.Chamadas();
     }
 
-    public static void MSGTeste(){
+    public static void MSGTeste()throws Exception {
 
         IntegraçãoChrome Ic = new IntegraçãoChrome();
         Ic.webDriver();
         Mensagem msg = new Mensagem();
-        msg.setContatos("Luiz [TSE]");
-        msg.setConteudo("Palmeiras não tem mundial");
+        msg.setContatos("Marcos [Senai]");
+        msg.setConteudo("Vilaaaaaaaaaa");
         EnviaMensagem Env = new EnviaMensagem();
         Env.EnviarMensagem(msg, Ic.getWebDriver());
 
@@ -31,34 +29,26 @@ public class StartApplication {
 
 
         Scanner scanner = new Scanner(System.in);
-        ArrayList <Ingrediente> Menu = new ArrayList<>();
         Ingrediente ing = new Ingrediente();
+        Receita receita = new Receita();
         ing.setNome("Fellp");
         ing.setPreco(12.5f);
         ing.setPesoUNI(78.45);
-        ing.setPesoREC(7.24);
         Ingrediente ing2 = new Ingrediente();
         ing2.setNome("Fellp2");
         ing2.setPreco(21.5f);
         ing2.setPesoUNI(54.47);
-        ing2.setPesoREC(9.25);
-        Menu.add(ing);
-        Menu.add(ing2);
-
-/*
-        for(int n = 0; n < Menu.size(); n++ ){
-
-            System.out.println(Menu.get(n).getNome());
-            System.out.println("\n");
-            System.out.println(Menu.get(n).getPesoUNI());
-            System.out.println("\n");
-            System.out.println(Menu.get(n).getPesoREC());
-            System.out.println("\n");
-            System.out.println(Menu.get(n).getPreco());
-            System.out.println("\n");
-
-        }
-  */
+        receita.addIngrediente(ing);
+        receita.addIngrediente(ing2);
+        System.out.println(receita.retornaIngredientes());
+        ing2.setPreco(27979879798.5f);
+        ing.setPreco(1265456.5f);
+        receita.editaReceita(1,ing2);
+        receita.editaReceita(0,ing);
+        System.out.println(receita.retornaIngredientes());
+        receita.deleteIngrediente(1);
+        System.out.println(receita.retornaIngredientes());
+        System.out.println(receita.tamanhoLista());
 
     }
 

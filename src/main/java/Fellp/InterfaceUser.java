@@ -15,6 +15,15 @@ public class InterfaceUser {
     private String CadIngredient2 = "Digite o peso do ingrediente: ";
     private String CadIngredient3 = "Digite o preço do ingrediente: ";
 
+    private String CadIngredient4 = "Digite o peso a ser usado na receita: ";
+    private String CadRecipe1 = "Digite o nome da receita: ";
+
+    private String Control1 = "Deseja adicionar mais um ingrediente? ";
+    private String Exception1 = "Cadastre pelo menos mais de um ingrediente!";
+
+    public String getControl1() {
+        return Control1;
+    }
 
     public String getWelcome() {
         return Welcome;
@@ -30,6 +39,18 @@ public class InterfaceUser {
 
     public String getCadIngredient3() {
         return CadIngredient3;
+    }
+
+    public String getException1() {
+        return Exception1;
+    }
+
+    public String getCadRecipe1() {
+        return CadRecipe1;
+    }
+
+    public String getCadIngredient4() {
+        return CadIngredient4;
     }
 }
 

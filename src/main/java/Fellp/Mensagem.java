@@ -45,7 +45,7 @@ public class Mensagem {
 
     public void AtualizaMSG(){
 
-        this.ultimaMensgaem = getConteudoRecebido();
+        this.ultimaMensgaem = this.conteudoRecebido;
 
     }
 }

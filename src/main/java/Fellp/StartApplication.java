@@ -9,8 +9,12 @@ import java.util.regex.Pattern;
 public class StartApplication {
 
     public static void main(String[] args) throws Exception {
-        MainConversation mc = new MainConversation();
-        mc.Chamadas();
+
+      MainConversation mc = new MainConversation();
+      mc.Chamadas();
+
+
+
     }
 
     public static void MSGTeste()throws Exception {

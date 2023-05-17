@@ -88,6 +88,8 @@ public class Receita  extends Ingrediente {
 
     }
 
+
+
     public int tamanhoLista(){
 
 
@@ -115,12 +117,36 @@ public class Receita  extends Ingrediente {
         String temp = "";
 
         for (int i = 0; i < Menu.size();i++){
-            temp = temp + "-"+i +" "+Menu.get(i).getNome()+"\n";
+            temp = temp + "."+i +" "+Menu.get(i).getNome()+"\n";
         }
 
         return temp;
 
     }
+
+    public String toString(){
+
+        return  "Ingrediente: " + this.getNome()+ " Peso unitário: " + this.getPesoUNI() + " Preço: " + this.getPreco()+
+                " Peso na receita: " +this.getPesoReceita()+"\n";
+
+
+    }
+
+
+    public String retornaListaReceita(){
+
+        String temp = "";
+
+        for (int i = 0; i < Receita.size();i++){
+            temp = temp + "."+i +" "+Receita.get(i).toString()+"\n";
+        }
+
+        return temp;
+
+    }
+
+
+
 }
 
 

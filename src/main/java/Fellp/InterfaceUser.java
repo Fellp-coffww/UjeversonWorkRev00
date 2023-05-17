@@ -9,7 +9,8 @@ public class InterfaceUser {
             "2.Adicionar ingrediente a uma receita\n" +
             "3.Retirar ingrediente de uma receita\n" +
             "4.Descobrir valor de uma receita\n" +
-            "5.Descobrir quantas receitas posso fazer com meu orçamento ";
+            "5.Descobrir quantas receitas posso fazer com meu orçamento\n "+
+            "6. Sair";
 
     private String CadIngredient1 = "Digite o nome do Ingrediente: ";
     private String CadIngredient2 = "Digite o peso do ingrediente: ";
@@ -18,8 +19,17 @@ public class InterfaceUser {
     private String CadIngredient4 = "Digite o peso a ser usado na receita: ";
     private String CadRecipe1 = "Digite o nome da receita: ";
 
-    private String Control1 = "Deseja adicionar mais um ingrediente? ";
+    private String Control1 = "Deseja adicionar mais um ingrediente? (sim/nao) ";
     private String Exception1 = "Cadastre pelo menos mais de um ingrediente!";
+
+    private String Control2 = "Selecione a receita a ser editada: ";
+
+    private String Control3 = "Selecione o ingrediente a ser deletado: ";
+
+    private String Control4 = "Selecione a receita a ser consultada: ";
+    public String getControl2() {
+        return Control2;
+    }
 
     public String getControl1() {
         return Control1;
@@ -51,6 +61,10 @@ public class InterfaceUser {
 
     public String getCadIngredient4() {
         return CadIngredient4;
+    }
+
+    public String getControl4() {
+        return Control4;
     }
 }
 

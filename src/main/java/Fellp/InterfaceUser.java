@@ -27,6 +27,8 @@ public class InterfaceUser {
     private String Control3 = "Selecione o ingrediente a ser deletado: ";
 
     private String Control4 = "Selecione a receita a ser consultada: ";
+
+    private String MoneyTrees = "Digite o seu orçamento: ";
     public String getControl2() {
         return Control2;
     }
@@ -65,6 +67,10 @@ public class InterfaceUser {
 
     public String getControl4() {
         return Control4;
+    }
+
+    public String getMoneyTrees() {
+        return MoneyTrees;
     }
 }
 

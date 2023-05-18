@@ -1,9 +1,7 @@
 package Fellp;
 import java.text.DecimalFormat;
-import java.time.*;
+
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class MainConversation {
@@ -40,10 +38,9 @@ while (msg.getConteudoRecebido().equals("6") == false){
 
         switch (msg.getConteudoRecebido()) {
 
-
             case "1":
 
-                if (receita.tamanhoLista() <= 1){
+                if (Ingredientes.tamanhoLista() <= 1){
 
                     msg.setConteudo(Pdr.getException1());
                     Env.EnviarMensagem(msg, Ic.getWebDriver());
@@ -62,7 +59,6 @@ while (msg.getConteudoRecebido().equals("6") == false){
                     msg.AtualizaMSG();
                     while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem())==true){
                         Lenv.LerMensagem(msg,Ic.getWebDriver());
-                        System.out.println(msg.getConteudoRecebido());
                     }
                     receita.setNomeReceita(msg.getConteudoRecebido());
                     Thread.sleep(3000);
@@ -71,8 +67,7 @@ while (msg.getConteudoRecebido().equals("6") == false){
                     Receita receitatemp = new Receita();
                     receitatemp.setNomeReceita(msg.getConteudoRecebido());
                     String ListaIngredientes = "Lista de ingredientes que podem ser adicionados:\n";
-                    ListaIngredientes = ListaIngredientes + receita.retornaListaIngredientes();
-                    System.out.println(ListaIngredientes );
+                    ListaIngredientes = ListaIngredientes + Ingredientes.retornaListaIngredientes();
                     msg.setConteudo(ListaIngredientes);
                     Env.EnviarMensagem(msg, Ic.getWebDriver());
                     String CriarReceita = "Adicione o Ingrediente que desejar na receita pelo seu respectivo número!" +
@@ -80,24 +75,27 @@ while (msg.getConteudoRecebido().equals("6") == false){
                     msg.setConteudo(CriarReceita);
                     Env.EnviarMensagem(msg, Ic.getWebDriver());
                     int LeituraIndex = 0;
-                        Lenv.LerMensagem(msg, Ic.getWebDriver());
-                        msg.AtualizaMSG();
-                        System.out.println(msg.getConteudoRecebido());
-                        System.out.println(msg.getUltimaMensgaem());
+                    Lenv.LerMensagem(msg, Ic.getWebDriver());
+                    msg.AtualizaMSG();
                         while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem()) == true) {
                             Lenv.LerMensagem(msg, Ic.getWebDriver());
-                            System.out.println(msg.getConteudoRecebido());
                         }
                         Global = msg.getConteudoRecebido();
                         Scanner global = new Scanner(Global);
                         LeituraIndex = global.nextInt();
                         receita.setGambiarraIDX(LeituraIndex);
 
-                        receitatemp.setNome(receita.getIngredienteByIdx(LeituraIndex).getNome());
-                        receitatemp.setPreco(receita.getIngredienteByIdx(LeituraIndex).getPreco());
-                        receitatemp.setPesoUNI(receita.getIngredienteByIdx(LeituraIndex).getPesoUNI());
 
-                        msg.setConteudo("Ingrediente: " + receita.getIngredienteByIdx(LeituraIndex).getNome() + " adicionado com sucesso!");
+                        receitatemp.setNome(Ingredientes.getIngredienteByIdx(LeituraIndex).getNome());
+                        receitatemp.setPreco(Ingredientes.getIngredienteByIdx(LeituraIndex).getPreco());
+                        receitatemp.setPesoUNI(Ingredientes.getIngredienteByIdx(LeituraIndex).getPesoUNI());
+
+                        System.out.println(Ingredientes.getIngredienteByIdx(LeituraIndex).getNome());
+                        System.out.println(Ingredientes.getIngredienteByIdx(LeituraIndex).getPreco());
+                        System.out.println(Ingredientes.getIngredienteByIdx(LeituraIndex).getPesoUNI());
+
+                        msg.setConteudo("Ingrediente: " + Ingredientes.getIngredienteByIdx(LeituraIndex).getNome()
+                                        + " adicionado com sucesso!");
                         Env.EnviarMensagem(msg, Ic.getWebDriver());
                         msg.AtualizaMSG();
                         Lenv.LerMensagem(msg, Ic.getWebDriver());
@@ -105,11 +103,8 @@ while (msg.getConteudoRecebido().equals("6") == false){
                         Env.EnviarMensagem(msg, Ic.getWebDriver());
                         Lenv.LerMensagem(msg, Ic.getWebDriver());
                         msg.AtualizaMSG();
-                        System.out.println(msg.getConteudoRecebido());
-                        System.out.println(msg.getUltimaMensgaem());
                         while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem()) == true) {
                             Lenv.LerMensagem(msg, Ic.getWebDriver());
-                            System.out.println(msg.getConteudoRecebido());
                         }
                         Global = msg.getConteudoRecebido();
                         Scanner global2 = new Scanner(Global);
@@ -119,16 +114,22 @@ while (msg.getConteudoRecebido().equals("6") == false){
                         Env.EnviarMensagem(msg, Ic.getWebDriver());
                         Lenv.LerMensagem(msg, Ic.getWebDriver());
                         msg.AtualizaMSG();
-                        receita.addReceita(receitatemp);
 
                         while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem()) == true) {
                             Lenv.LerMensagem(msg, Ic.getWebDriver());
-                            System.out.println(msg.getConteudoRecebido());
                         }
 
-
+                        receita.addReceita(receitatemp);
                     }
                     receitas.add(receita);
+
+                    System.out.println(receitas.get(0).getReceitaByIdx(0).getPreco());
+                    System.out.println(receitas.get(0).getReceitaByIdx(0).getNome());
+                    System.out.println(receitas.get(0).getReceitaByIdx(0).getPesoUNI());
+
+                    System.out.println(receitas.get(0).getReceitaByIdx(1).getPreco());
+                    System.out.println(receitas.get(0).getReceitaByIdx(1).getNome());
+                    System.out.println(receitas.get(0).getReceitaByIdx(1).getPesoUNI());
                     break;
 
 
@@ -137,7 +138,7 @@ while (msg.getConteudoRecebido().equals("6") == false){
 
             case "2":
 
-                Ingrediente Ing = new Ingrediente();
+                Receita Ing = new Receita();
                 msg.setConteudo(Pdr.getCadIngredient1());
                 Env.EnviarMensagem(msg, Ic.getWebDriver());
                 Lenv.LerMensagem(msg,Ic.getWebDriver());
@@ -145,12 +146,10 @@ while (msg.getConteudoRecebido().equals("6") == false){
                 //Envia a primeira mensagem e espera o resultado diferente de nulo
                 while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem())==true){
                     Lenv.LerMensagem(msg,Ic.getWebDriver());
-                    System.out.println(msg.getConteudoRecebido());
                 }
 
                 //Set de valor do nome do ingrediente
                 Ing.setNome(msg.getConteudoRecebido());
-                System.out.println(Ing.getNome());
                 //Envia a primeira mensagem para adicionar o peso
                 msg.setConteudo(Pdr.getCadIngredient2());
                 Env.EnviarMensagem(msg, Ic.getWebDriver());
@@ -159,7 +158,6 @@ while (msg.getConteudoRecebido().equals("6") == false){
                 //Envia a segunda mensagem e espera o resultado diferente de nulo
                 while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem())==true){
                     Lenv.LerMensagem(msg,Ic.getWebDriver());
-                    System.out.println(msg.getConteudoRecebido());
                 }
                 //Set de valor do peso do ingrediente
                 String temp = msg.getConteudoRecebido();
@@ -178,7 +176,7 @@ while (msg.getConteudoRecebido().equals("6") == false){
                 String temp2 = msg.getConteudoRecebido();
                 Scanner sc2 = new Scanner(temp2);
                 Ing.setPreco(sc2.nextDouble());
-                receita.addIngrediente(Ing);
+                Ingredientes.addIngrediente(Ing);
 
                 break;
 
@@ -245,22 +243,39 @@ while (msg.getConteudoRecebido().equals("6") == false){
                  msg.AtualizaMSG();
                  while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem())==true){
                      Lenv.LerMensagem(msg,Ic.getWebDriver());
-                     System.out.println(msg.getConteudoRecebido());
                  }
                  Scanner global8 = new Scanner(msg.getConteudoRecebido());
                  x3 = global8.nextInt();
+
                  double precoReceita = 0;
-                 for(int n = 0; n < receitas.get(x3).tamanhoLista(); n++){
+                 for(int n = 0; n < receitas.get(x3).tamanhoListaRec(); n++){
 
-                 precoReceita = precoReceita +  (receitas.get(x3).getIngredienteByIdx(n).getPesoReceita() * receitas.get(x3).getIngredienteByIdx(n).getPreco())/receitas.get(x3).getIngredienteByIdx(n).getPesoUNI();
-
+                     precoReceita = precoReceita +  (receitas.get(x3).getReceitaByIdx(n).getPesoReceita() * receitas.get(x3).getReceitaByIdx(n).getPreco())/receitas.get(x3).getReceitaByIdx(n).getPesoUNI();
+                     System.out.println(receitas.get(x3).getReceitaByIdx(n).getPesoReceita());
+                     System.out.println(receitas.get(x3).getReceitaByIdx(n).getPreco());
+                     System.out.println(receitas.get(x3).getReceitaByIdx(n).getPesoReceita());
+                     System.out.println(receitas.get(x3).getReceitaByIdx(n).getNome());
+                     System.out.println(precoReceita);
                 }
 
                 msg.setConteudo("O preço da receita: " + receitas.get(x3).getNomeReceita() + " é de: " + new DecimalFormat("#,##0.00").format(precoReceita) +" R$." );
-                 Env.EnviarMensagem(msg, Ic.getWebDriver());
+                Env.EnviarMensagem(msg, Ic.getWebDriver());
                  break;
 
             case "5":
+
+                msg.setConteudo(Pdr.getMoneyTrees());
+                Env.EnviarMensagem(msg, Ic.getWebDriver());
+                Lenv.LerMensagem(msg,Ic.getWebDriver());
+                msg.AtualizaMSG();
+
+                while (msg.getConteudoRecebido().equals(msg.getUltimaMensgaem())==true){
+
+                    Lenv.LerMensagem(msg,Ic.getWebDriver());
+                    System.out.println(msg.getConteudoRecebido());
+
+                }
+
 
 
 

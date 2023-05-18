@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class ListaIngredientes {
 
-    private ArrayList<Receita> Menu = new ArrayList<>();
+    private ArrayList<Ingrediente> Menu = new ArrayList<>();
 
-    public Receita getIngredienteByIdx(int Idx) {
+    public Ingrediente getIngredienteByIdx(int Idx) {
 
         return Menu.get(Idx);
 

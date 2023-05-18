@@ -23,7 +23,7 @@ public class Receita  extends Ingrediente {
 
    }
 
-    public Ingrediente getReceitaByIdx(int Idx) {
+    public Receita getReceitaByIdx(int Idx) {
 
         return Receita.get(Idx);
 
@@ -96,6 +96,12 @@ public class Receita  extends Ingrediente {
         return  Menu.size();
     }
 
+    public int tamanhoListaRec(){
+
+
+        return  Receita.size();
+    }
+
     public String getNomeReceita() {
         return nomeReceita;
     }
@@ -117,7 +123,7 @@ public class Receita  extends Ingrediente {
         String temp = "";
 
         for (int i = 0; i < Menu.size();i++){
-            temp = temp + "."+i +" "+Menu.get(i).getNome()+"\n";
+            temp = temp + i +"."+" "+Menu.get(i).getNome()+"\n";
         }
 
         return temp;

@@ -17,6 +17,13 @@ public class Receita  extends Ingrediente {
 
     private ArrayList<Receita> Receita = new ArrayList<>();
 
+    private  double precoReceita = 0;
+
+    public double getPrecoReceita() {
+        return precoReceita;
+    }
+
+
     public Ingrediente getIngredienteByIdx(int Idx) {
 
        return Menu.get(Idx);
@@ -74,13 +81,13 @@ public class Receita  extends Ingrediente {
 
     }
 
-    public void SalvaReceita(ArrayList <Ingrediente> Menu) throws Exception{
+    public void SalvaReceita(ArrayList <Receita> Menu) throws Exception{
 
         Path receita = Paths.get("src/main/java/Fellp/Receita.txt");
         String temp = "";
-        for (int i = 0; i < Menu.size();i++){
+        for (int i = 0; i < Receita.size();i++){
 
-            temp = temp + Menu.get(i).toString();
+            temp = temp + Receita.get(i).toString();
 
         }
 
@@ -150,6 +157,20 @@ public class Receita  extends Ingrediente {
         return temp;
 
     }
+
+    public void PrecoReceita(){
+
+        double Res = 0;
+
+        for(int n = 0; n < Receita.size(); n++) {
+
+        Res =  Res + Receita.get(n).getPesoReceita() * Receita.get(n).getPreco() / Receita.get(n).getPesoUNI();
+
+
+        }
+        this.precoReceita = Res;
+
+        }
 
 
 

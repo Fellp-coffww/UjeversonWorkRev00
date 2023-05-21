@@ -10,9 +10,9 @@ public class StartApplication {
 
     public static void main(String[] args) throws Exception {
 
-      MainConversation mc = new MainConversation();
-      mc.Chamadas();
 
+        MainConversation mc = new MainConversation();
+        mc.Chamadas();
 
 
     }
@@ -26,6 +26,9 @@ public class StartApplication {
         msg.setConteudo("Vilaaaaaaaaaa");
         EnviaMensagem Env = new EnviaMensagem();
         Env.EnviarMensagem(msg, Ic.getWebDriver());
+        MainConversation mc = new MainConversation();
+        mc.Chamadas();
+
 
     }
 

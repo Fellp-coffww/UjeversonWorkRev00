@@ -9,13 +9,13 @@ public class InterfaceUser {
             "2.Adicionar ingrediente a uma receita\n" +
             "3.Retirar ingrediente de uma receita\n" +
             "4.Descobrir valor de uma receita\n" +
-            "5.Descobrir quantas receitas posso fazer com meu orçamento\n "+
+            "5. Descobrir o lucro de uma receita \n"+
             "6. Sair";
 
     private String CadIngredient1 = "Digite o nome do Ingrediente: ";
     private String CadIngredient2 = "Digite o peso do ingrediente: ";
     private String CadIngredient3 = "Digite o preço do ingrediente: ";
-
+    private String CadIngredient5 = "Digite o seu orçamento: ";
     private String CadIngredient4 = "Digite o peso a ser usado na receita: ";
     private String CadRecipe1 = "Digite o nome da receita: ";
 
@@ -71,6 +71,10 @@ public class InterfaceUser {
 
     public String getMoneyTrees() {
         return MoneyTrees;
+    }
+
+    public String getCadIngredient5() {
+        return CadIngredient5;
     }
 }
 

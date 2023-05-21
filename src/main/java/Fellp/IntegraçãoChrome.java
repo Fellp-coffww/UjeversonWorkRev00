@@ -13,9 +13,7 @@ public class IntegraçãoChrome {
         return webDriver;
     }
 
-    public void setWebDriver(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
+
 
     public  WebDriver webDriver(){
 
